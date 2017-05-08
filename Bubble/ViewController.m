@@ -7,12 +7,16 @@
 //
 
 #import "ViewController.h"
+#import "BubbleViewController.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
+@synthesize nameField;
+@synthesize startBtn;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +28,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    BubbleViewController *des = segue.destinationViewController;
+    des.userName = nameField.text;
+    des.gameTime = @"60";
+}
 
 
+- (IBAction)startGame:(id)sender {
+}
 @end
