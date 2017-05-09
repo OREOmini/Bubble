@@ -10,6 +10,7 @@
 #import "BubbleModel.h"
 
 static const int BUBBLE_SIZE = 80;
+static const int BUBBLE_TAG = 1;
 
 @interface BubbleViewController () {
     NSTimer *timer;
@@ -43,6 +44,13 @@ static const int BUBBLE_SIZE = 80;
 
 }
 
+- (void) removeBubbles {
+    for (UIView *view in self.view.subviews) {
+        if (view.tag == BUBBLE_TAG)
+            [view removeFromSuperview];
+    }
+}
+
 - (void) showBubbles {
     BubbleModel *bubbleModel;
     bubbleModel = [[BubbleModel alloc] init];
@@ -50,6 +58,7 @@ static const int BUBBLE_SIZE = 80;
     [bubbleModel setBubbleSize: BUBBLE_SIZE];
     NSLog(@"%d", [bubbleModel bubbleNumber]);
     // NSMutableArray *t = [bubbleModel generateBubblePositions];
+    
     NSMutableArray *pos = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubblePositionsWithFrame:self.view.frame]];
     NSMutableArray *colors = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubbleColors]];
     
@@ -64,8 +73,9 @@ static const int BUBBLE_SIZE = 80;
     //[self.view addSubview:blueBubble];
 }
 
-- (IBAction)touchBubble:(UIButton*)sender {
-    NSLog(@"BUBBLE %f", self.view.frame.size.width);
+- (IBAction)touchBubble:(UIButton*)bubble {
+    NSLog(@"BUBBLE %f %f", bubble.center.x, bubble.center.y);
+    [bubble removeFromSuperview];
 }
 
 - (void) updateTimer
@@ -82,6 +92,10 @@ static const int BUBBLE_SIZE = 80;
         self.timeLabel.text = [NSString stringWithFormat: @"%d", tl];
         self.timeLabel.tag = tl;
     }
+    
+    [self removeBubbles];
+
+    [self showBubbles];
 }
 
 -(UIButton*) createBubbleButtonWithColor:(NSString*)color withRect:(CGRect)rect {
@@ -92,6 +106,7 @@ static const int BUBBLE_SIZE = 80;
     [bubble setTitle:@"" forState:UIControlStateNormal];
     [bubble addTarget:self action:@selector(touchBubble:) forControlEvents:UIControlEventTouchUpInside];
     [bubble setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [bubble setTag:BUBBLE_TAG];
     
     return bubble;
 }
