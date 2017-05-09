@@ -7,10 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "Bubble.h"
+
 
 @interface BubbleModel : NSObject
 
 @property NSDictionary *bubbles;
+@property int bubbleNumber;
+@property int bubbleSize;
 
+-(NSMutableArray*) generateBubblePositions;
+-(NSMutableArray*) generateBubbleColors;
 
 @end

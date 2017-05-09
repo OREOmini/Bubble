@@ -1,5 +1,5 @@
 //
-//  BubbleInfo.h
+//  Bubble.h
 //  Bubble
 //
 //  Created by wangyunwen on 17/5/8.
@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BubbleInfo : NSObject
+@interface Bubble : NSObject
 
 @property NSString *color;
 @property int gamePoint;
 @property double probability;
+
++(Bubble*) bubbleForColor:(NSString*)color;
 
 @end

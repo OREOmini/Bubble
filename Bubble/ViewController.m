@@ -32,6 +32,7 @@
     BubbleViewController *des = segue.destinationViewController;
     des.userName = nameField.text;
     des.gameTime = @"60";
+    des.bubbleNumber = @15;
 }
 
 

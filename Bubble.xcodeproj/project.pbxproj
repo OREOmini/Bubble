@@ -13,7 +13,6 @@
 		DE7ECEE01EBE91EE00EDCB3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECEDE1EBE91EE00EDCB3E /* Main.storyboard */; };
 		DE7ECEE21EBE91EE00EDCB3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECEE11EBE91EE00EDCB3E /* Assets.xcassets */; };
 		DE7ECEE51EBE91EE00EDCB3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECEE31EBE91EE00EDCB3E /* LaunchScreen.storyboard */; };
-		DE7ECEEE1EBE939000EDCB3E /* BubbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECEED1EBE939000EDCB3E /* BubbleViewController.m */; };
 		DE7ECEF11EBEA5CB00EDCB3E /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECEF01EBEA5CB00EDCB3E /* GameOverViewController.m */; };
 		DE7ECF051EBEDF3B00EDCB3E /* black_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECF001EBEDF3B00EDCB3E /* black_bubble.png */; };
 		DE7ECF061EBEDF3B00EDCB3E /* blue_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECF011EBEDF3B00EDCB3E /* blue_bubble.png */; };
@@ -21,7 +20,8 @@
 		DE7ECF081EBEDF3B00EDCB3E /* pink_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECF031EBEDF3B00EDCB3E /* pink_bubble.png */; };
 		DE7ECF091EBEDF3B00EDCB3E /* red_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECF041EBEDF3B00EDCB3E /* red_bubble.png */; };
 		DE7ECF0C1EC0742900EDCB3E /* BubbleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECF0B1EC0742900EDCB3E /* BubbleModel.m */; };
-		DE7ECF0F1EC077AC00EDCB3E /* BubbleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECF0E1EC077AC00EDCB3E /* BubbleInfo.m */; };
+		DE7ECF121EC07AB600EDCB3E /* Bubble.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECF111EC07AB600EDCB3E /* Bubble.m */; };
+		DE7ECF151EC0841200EDCB3E /* BubbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECF131EC0841200EDCB3E /* BubbleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +35,6 @@
 		DE7ECEE11EBE91EE00EDCB3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE7ECEE41EBE91EE00EDCB3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE7ECEE61EBE91EE00EDCB3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE7ECEEC1EBE939000EDCB3E /* BubbleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleViewController.h; sourceTree = SOURCE_ROOT; };
-		DE7ECEED1EBE939000EDCB3E /* BubbleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleViewController.m; sourceTree = SOURCE_ROOT; };
 		DE7ECEEF1EBEA5CB00EDCB3E /* GameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverViewController.h; sourceTree = "<group>"; };
 		DE7ECEF01EBEA5CB00EDCB3E /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
 		DE7ECF001EBEDF3B00EDCB3E /* black_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_bubble.png; sourceTree = "<group>"; };
@@ -46,8 +44,10 @@
 		DE7ECF041EBEDF3B00EDCB3E /* red_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_bubble.png; sourceTree = "<group>"; };
 		DE7ECF0A1EC0742900EDCB3E /* BubbleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BubbleModel.h; path = Bubble/BubbleModel.h; sourceTree = SOURCE_ROOT; };
 		DE7ECF0B1EC0742900EDCB3E /* BubbleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BubbleModel.m; path = Bubble/BubbleModel.m; sourceTree = SOURCE_ROOT; };
-		DE7ECF0D1EC077AC00EDCB3E /* BubbleInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleInfo.h; sourceTree = "<group>"; };
-		DE7ECF0E1EC077AC00EDCB3E /* BubbleInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleInfo.m; sourceTree = "<group>"; };
+		DE7ECF101EC07AB600EDCB3E /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubble.h; sourceTree = "<group>"; };
+		DE7ECF111EC07AB600EDCB3E /* Bubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bubble.m; sourceTree = "<group>"; };
+		DE7ECF131EC0841200EDCB3E /* BubbleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleViewController.m; sourceTree = "<group>"; };
+		DE7ECF141EC0841200EDCB3E /* BubbleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +81,12 @@
 			isa = PBXGroup;
 			children = (
 				DE7ECEFF1EBEDF3B00EDCB3E /* resources */,
-				DE7ECEEC1EBE939000EDCB3E /* BubbleViewController.h */,
-				DE7ECEED1EBE939000EDCB3E /* BubbleViewController.m */,
 				DE7ECED81EBE91EE00EDCB3E /* AppDelegate.h */,
 				DE7ECED91EBE91EE00EDCB3E /* AppDelegate.m */,
 				DE7ECEDB1EBE91EE00EDCB3E /* ViewController.h */,
 				DE7ECEDC1EBE91EE00EDCB3E /* ViewController.m */,
+				DE7ECF141EC0841200EDCB3E /* BubbleViewController.h */,
+				DE7ECF131EC0841200EDCB3E /* BubbleViewController.m */,
 				DE7ECEDE1EBE91EE00EDCB3E /* Main.storyboard */,
 				DE7ECEE11EBE91EE00EDCB3E /* Assets.xcassets */,
 				DE7ECF0A1EC0742900EDCB3E /* BubbleModel.h */,
@@ -96,8 +96,8 @@
 				DE7ECED51EBE91EE00EDCB3E /* Supporting Files */,
 				DE7ECEEF1EBEA5CB00EDCB3E /* GameOverViewController.h */,
 				DE7ECEF01EBEA5CB00EDCB3E /* GameOverViewController.m */,
-				DE7ECF0D1EC077AC00EDCB3E /* BubbleInfo.h */,
-				DE7ECF0E1EC077AC00EDCB3E /* BubbleInfo.m */,
+				DE7ECF101EC07AB600EDCB3E /* Bubble.h */,
+				DE7ECF111EC07AB600EDCB3E /* Bubble.m */,
 			);
 			path = Bubble;
 			sourceTree = "<group>";
@@ -198,13 +198,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE7ECF0F1EC077AC00EDCB3E /* BubbleInfo.m in Sources */,
-				DE7ECEEE1EBE939000EDCB3E /* BubbleViewController.m in Sources */,
 				DE7ECEDD1EBE91EE00EDCB3E /* ViewController.m in Sources */,
 				DE7ECEDA1EBE91EE00EDCB3E /* AppDelegate.m in Sources */,
 				DE7ECEF11EBEA5CB00EDCB3E /* GameOverViewController.m in Sources */,
+				DE7ECF151EC0841200EDCB3E /* BubbleViewController.m in Sources */,
 				DE7ECED71EBE91EE00EDCB3E /* main.m in Sources */,
 				DE7ECF0C1EC0742900EDCB3E /* BubbleModel.m in Sources */,
+				DE7ECF121EC07AB600EDCB3E /* Bubble.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
