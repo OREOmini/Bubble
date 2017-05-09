@@ -10,7 +10,6 @@
 #import "BubbleModel.h"
 
 static const int BUBBLE_SIZE = 80;
-static const int BUBBLE_TAG = 1;
 
 @interface BubbleViewController () {
     NSTimer *timer;
@@ -24,6 +23,9 @@ static const int BUBBLE_TAG = 1;
 @synthesize userName;
 @synthesize gameTime;
 @synthesize bubbleNumber;
+@synthesize bubbleView;
+@synthesize highestSocre;
+@synthesize score;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,13 +46,6 @@ static const int BUBBLE_TAG = 1;
 
 }
 
-- (void) removeBubbles {
-    for (UIView *view in self.view.subviews) {
-        if (view.tag == BUBBLE_TAG)
-            [view removeFromSuperview];
-    }
-}
-
 - (void) showBubbles {
     BubbleModel *bubbleModel;
     bubbleModel = [[BubbleModel alloc] init];
@@ -59,7 +54,7 @@ static const int BUBBLE_TAG = 1;
     NSLog(@"%d", [bubbleModel bubbleNumber]);
     // NSMutableArray *t = [bubbleModel generateBubblePositions];
     
-    NSMutableArray *pos = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubblePositionsWithFrame:self.view.frame]];
+    NSMutableArray *pos = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubblePositionsWithFrame:bubbleView.frame]];
     NSMutableArray *colors = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubbleColors]];
     
     
@@ -68,13 +63,16 @@ static const int BUBBLE_TAG = 1;
         UIButton *button = [self createBubbleButtonWithColor:[colors objectAtIndex:i]
                                                          withRect:rect];
         // NSLog(@"%@ at %f", [colors objectAtIndex:i], rect.size);
-        [self.view addSubview:button];
+        [bubbleView addSubview:button];
     }
     //[self.view addSubview:blueBubble];
 }
 
 - (IBAction)touchBubble:(UIButton*)bubble {
     NSLog(@"BUBBLE %f %f", bubble.center.x, bubble.center.y);
+    
+    int s = [score.text intValue] + (int)bubble.tag;
+    [score setText:[NSString stringWithFormat:@"%d", s]];
     [bubble removeFromSuperview];
 }
 
@@ -85,7 +83,8 @@ static const int BUBBLE_TAG = 1;
     if (tl <= 0) {
         [timer invalidate]; //cancel the timer
         timer = nil;
-        [self dismissViewControllerAnimated: YES completion:nil];
+        [self performSegueWithIdentifier:@"gameOver" sender:nil];
+        // [self dismissViewControllerAnimated: YES completion:nil];
         
     }
     else {
@@ -93,8 +92,9 @@ static const int BUBBLE_TAG = 1;
         self.timeLabel.tag = tl;
     }
     
-    [self removeBubbles];
-
+    //[self removeBubbles];
+    for(UIView* bubble in bubbleView.subviews)
+        [bubble removeFromSuperview];
     [self showBubbles];
 }
 
@@ -106,10 +106,14 @@ static const int BUBBLE_TAG = 1;
     [bubble setTitle:@"" forState:UIControlStateNormal];
     [bubble addTarget:self action:@selector(touchBubble:) forControlEvents:UIControlEventTouchUpInside];
     [bubble setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    [bubble setTag:BUBBLE_TAG];
+    
+    NSInteger tag = [[Bubble bubbleForColor:color] gamePoint];
+    [bubble setTag:tag];
     
     return bubble;
 }
+
+
 
 /*
 #pragma mark - Navigation

@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) NSString *gameTime;
 @property (weak, nonatomic) NSNumber *bubbleNumber;
+@property (weak, nonatomic) IBOutlet UIView *bubbleView;
+@property (weak, nonatomic) IBOutlet UILabel *score;
+@property (weak, nonatomic) IBOutlet UILabel *highestSocre;
 
 -(IBAction)touchBubble:(UIButton*)sender;
 -(UIButton*) createBubbleButtonWithColor:(NSString*)color withRect:(CGRect)rect;
