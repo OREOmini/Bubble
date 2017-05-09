@@ -50,8 +50,9 @@ static const int BUBBLE_SIZE = 80;
     [bubbleModel setBubbleSize: BUBBLE_SIZE];
     NSLog(@"%d", [bubbleModel bubbleNumber]);
     // NSMutableArray *t = [bubbleModel generateBubblePositions];
-    NSMutableArray *pos = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubblePositions]];
+    NSMutableArray *pos = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubblePositionsWithFrame:self.view.frame]];
     NSMutableArray *colors = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubbleColors]];
+    
     
     for(int i = 0; i < [bubbleNumber intValue]; i++) {
         CGRect rect = [[pos objectAtIndex:i] CGRectValue];

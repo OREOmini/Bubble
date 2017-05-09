@@ -17,7 +17,8 @@
 @property int bubbleNumber;
 @property int bubbleSize;
 
--(NSMutableArray*) generateBubblePositions;
+-(CGRect) generateRandomRectInFrame:(CGRect)frame;
+-(NSMutableArray*) generateBubblePositionsWithFrame:(CGRect)frame;
 -(NSMutableArray*) generateBubbleColors;
 
 @end

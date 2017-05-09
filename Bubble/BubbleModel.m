@@ -16,21 +16,36 @@
 @synthesize bubbleNumber;
 @synthesize bubbleSize;
 
--(NSMutableArray*) generateBubblePositions {
+-(CGRect) generateRandomRectInFrame:(CGRect)frame {
+    CGRect rect;
+    CGFloat x = (CGFloat) (arc4random() % (int) (frame.size.width - bubbleSize));
+    CGFloat y = (CGFloat) (arc4random() % (int) (frame.size.height - bubbleSize));
+    rect = CGRectMake(x, y, bubbleSize, bubbleSize);
+    return rect;
+}
+
+-(BOOL) rect:(CGRect)rect hasIntersectionInPos:(NSMutableArray*)pos {
+    if(pos.count > 0) {
+        for(int i = 0; i < pos.count; i++) {
+            CGRect existRect = [[pos objectAtIndex:i] CGRectValue];
+            if (CGRectIntersectsRect(existRect, rect))
+                return true;
+        }
+    }
+    return false;
+}
+
+-(NSMutableArray*) generateBubblePositionsWithFrame:(CGRect)frame {
     NSMutableArray *bubblePositions = [[NSMutableArray alloc] init];
     
     for(int i = 0; i < bubbleNumber; i++) {
-        CGRect rect = CGRectMake(i*10, i*10, bubbleSize, bubbleSize);
-        
+        CGRect rect = [self generateRandomRectInFrame:frame];
+        while ([self rect:rect hasIntersectionInPos:bubblePositions]) {
+            rect = [self generateRandomRectInFrame:frame];
+        }
         [bubblePositions addObject:[NSValue valueWithCGRect:rect]];
     }
 
-//    CGPoint point = CGPointMake(120, 120);
-//    [bubblePositions addObject:[NSValue valueWithCGPoint:point]];
-//    for(int i = 1; i < bubbleNumber; i++) {
-//        [bubblePositions addObject:[NSValue valueWithCGPoint:CGPointMake(i*10, i*10)]];
-//
-//    }
     
     return bubblePositions;
 }

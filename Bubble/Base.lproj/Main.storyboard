@@ -76,11 +76,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meO-hk-C0s">
-                                <rect key="frame" x="50" y="148" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="red_bubble.png"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -111,7 +106,4 @@
             <point key="canvasLocation" x="1586" y="121"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="red_bubble.png" width="100" height="100"/>
-    </resources>
 </document>
