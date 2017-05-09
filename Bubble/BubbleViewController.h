@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "BubbleModel.h"
+#import "GameOverViewController.h"
 
 @interface BubbleViewController : UIViewController
 
 @property (weak, nonatomic) NSString *userName;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) NSString *gameTime;
-@property (weak, nonatomic) NSNumber *bubbleNumber;
+@property NSString *gameTime;
+@property NSNumber *bubbleNumber;
 @property (weak, nonatomic) IBOutlet UIView *bubbleView;
 @property (weak, nonatomic) IBOutlet UILabel *score;
 @property (weak, nonatomic) IBOutlet UILabel *highestSocre;

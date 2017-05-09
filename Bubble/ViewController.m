@@ -31,7 +31,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     BubbleViewController *des = segue.destinationViewController;
     des.userName = nameField.text;
-    des.gameTime = @"60";
+    des.gameTime = @"5";
     des.bubbleNumber = @15;
 }
 

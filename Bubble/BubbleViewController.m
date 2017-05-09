@@ -8,6 +8,7 @@
 
 #import "BubbleViewController.h"
 #import "BubbleModel.h"
+#import "GameOverViewController.h"
 
 static const int BUBBLE_SIZE = 80;
 
@@ -84,7 +85,6 @@ static const int BUBBLE_SIZE = 80;
         [timer invalidate]; //cancel the timer
         timer = nil;
         [self performSegueWithIdentifier:@"gameOver" sender:nil];
-        // [self dismissViewControllerAnimated: YES completion:nil];
         
     }
     else {
@@ -115,14 +115,21 @@ static const int BUBBLE_SIZE = 80;
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    GameOverViewController *des = segue.destinationViewController;
+    des.userName = userName;
+    des.bubbleNumber = bubbleNumber;
+    des.gameTime = gameTime;
+    des.score = [score.text intValue];
+    
+    
 }
-*/
+
 
 @end
