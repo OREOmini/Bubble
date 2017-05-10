@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BubbleViewController.h"
+#import "ViewController.h"
 
 @interface GameOverViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *restartBtn;
@@ -15,8 +16,7 @@
 @property NSString *gameTime;
 @property NSString *userName;
 @property NSNumber *bubbleNumber;
-@property (weak, nonatomic) IBOutlet UILabel *showScoreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *goBackToMenuBtn;
-- (IBAction)goToViewController:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *showScoreLabel;
 
 @end

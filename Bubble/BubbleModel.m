@@ -50,7 +50,6 @@
     return bubblePositions;
 }
 -(NSMutableArray*) generateBubbleColors {
-    bubbleNumber = 15;
     NSArray *colors = [[NSArray alloc] initWithObjects:@"red", @"green", @"blue", @"pink", @"black",nil];
     NSMutableArray *bubbleColors = [[NSMutableArray alloc] init];
     

@@ -17,6 +17,10 @@
 
 @synthesize nameField;
 @synthesize startBtn;
+@synthesize bubbleNumberLabel;
+@synthesize gameTimeSlider;
+@synthesize bubbleNumberSlider;
+@synthesize gameTimeLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,11 +35,18 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     BubbleViewController *des = segue.destinationViewController;
     des.userName = nameField.text;
-    des.gameTime = @"5";
-    des.bubbleNumber = @15;
+    des.gameTime = [NSString stringWithFormat:@"%d", (int)gameTimeSlider.value];
+    des.bubbleNumber = [NSNumber numberWithInt:(int)bubbleNumberSlider.value];
 }
 
 
 - (IBAction)startGame:(id)sender {
+}
+- (IBAction)gameTimeSliderChange:(id)sender {
+    gameTimeLabel.text = [NSString stringWithFormat:@"%d", (int)gameTimeSlider.value];
+}
+
+- (IBAction)bubbleNumberSliderChange:(id)sender {
+    bubbleNumberLabel.text = [NSString stringWithFormat:@"%d", (int)bubbleNumberSlider.value];
 }
 @end

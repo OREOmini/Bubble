@@ -10,7 +10,9 @@
 #import "BubbleModel.h"
 #import "GameOverViewController.h"
 
-static const int BUBBLE_SIZE = 80;
+static const int BUBBLE_TAG = 1;
+static const int SHOW_BUBBLE_SCORE_LABEL_TAG = 20;
+
 
 @interface BubbleViewController () {
     NSTimer *timer;
@@ -27,6 +29,8 @@ static const int BUBBLE_SIZE = 80;
 @synthesize bubbleView;
 @synthesize highestSocre;
 @synthesize score;
+@synthesize bubbleSize;
+@synthesize bubbleSequence;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,6 +47,9 @@ static const int BUBBLE_SIZE = 80;
      self.timeLabel.tag = [gameTime intValue]; // tag is like an integer scratchpad
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES]; //sets up the timer of 1 sec interval
     
+    NSLog(@"%@", [NSString stringWithFormat:@"time:%@ number:%@", gameTime, bubbleNumber]);
+    // bubbleSize = self.view.frame.size.width / sqrt([bubbleNumber intValue]);
+    bubbleSize = 80;
     [self showBubbles];
 
 }
@@ -51,8 +58,8 @@ static const int BUBBLE_SIZE = 80;
     BubbleModel *bubbleModel;
     bubbleModel = [[BubbleModel alloc] init];
     [bubbleModel setBubbleNumber:[bubbleNumber intValue]];
-    [bubbleModel setBubbleSize: BUBBLE_SIZE];
-    NSLog(@"%d", [bubbleModel bubbleNumber]);
+    [bubbleModel setBubbleSize: bubbleSize];
+    // NSLog(@"%d", [bubbleModel bubbleNumber]);
     // NSMutableArray *t = [bubbleModel generateBubblePositions];
     
     NSMutableArray *pos = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubblePositionsWithFrame:bubbleView.frame]];
@@ -72,9 +79,33 @@ static const int BUBBLE_SIZE = 80;
 - (IBAction)touchBubble:(UIButton*)bubble {
     NSLog(@"BUBBLE %f %f", bubble.center.x, bubble.center.y);
     
-    int s = [score.text intValue] + (int)bubble.tag;
-    [score setText:[NSString stringWithFormat:@"%d", s]];
+    int point = [self getGainedPointWithBubble:bubble];
+    [score setText:[NSString stringWithFormat:@"%d", point+[score.text intValue]]];
+    [self popGainedScoreWithPoint:point andBubble:(UIButton*)bubble];
+    
     [bubble removeFromSuperview];
+    
+    // NSLog(bubble.tag);
+}
+-(int) getGainedPointWithBubble:(UIButton*)bubble {
+    int s = (int)bubble.tag;
+    return s;
+}
+
+-(void) popGainedScoreWithPoint:(int)point andBubble:(UIButton*)bubble {
+    CGRect rect = CGRectInset(bubble.frame, 0, 0);
+    UILabel *bubbleScoreLabel = [[UILabel alloc]initWithFrame:rect];
+    bubbleScoreLabel.textColor = [UIColor redColor];
+    bubbleScoreLabel.text = [NSString stringWithFormat:@"+%ld", point];
+    bubbleScoreLabel.tag = SHOW_BUBBLE_SCORE_LABEL_TAG;
+    [bubbleView addSubview:bubbleScoreLabel];
+    
+    [UIView animateWithDuration:0.3 delay:1 options:0 animations:^{
+        bubbleScoreLabel.alpha = 0;
+    } completion:^(BOOL finished) {
+        bubbleScoreLabel.hidden = YES;
+        [bubbleScoreLabel removeFromSuperview];
+    }];
 }
 
 - (void) updateTimer
@@ -92,11 +123,16 @@ static const int BUBBLE_SIZE = 80;
         self.timeLabel.tag = tl;
     }
     
-    //[self removeBubbles];
-    for(UIView* bubble in bubbleView.subviews)
-        [bubble removeFromSuperview];
+    [self removeBubbles];
     [self showBubbles];
 }
+
+- (void) removeBubbles {
+    for(UIView* bubble in bubbleView.subviews)
+        if(bubble.tag != SHOW_BUBBLE_SCORE_LABEL_TAG)
+            [bubble removeFromSuperview];
+}
+
 
 -(UIButton*) createBubbleButtonWithColor:(NSString*)color withRect:(CGRect)rect {
     NSString *imageName = [NSString stringWithFormat:@"%@_bubble.png", color];
@@ -107,8 +143,9 @@ static const int BUBBLE_SIZE = 80;
     [bubble addTarget:self action:@selector(touchBubble:) forControlEvents:UIControlEventTouchUpInside];
     [bubble setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     
-    NSInteger tag = [[Bubble bubbleForColor:color] gamePoint];
-    [bubble setTag:tag];
+    NSInteger point = [[Bubble bubbleForColor:color] gamePoint];
+    //[bubble setValue:[NSNumber numberWithInteger:point] forKey:@"point"];
+    [bubble setTag:point];
     
     return bubble;
 }

@@ -13,6 +13,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UIButton *startBtn;
 - (IBAction)startGame:(id)sender;
+@property (weak, nonatomic) IBOutlet UISlider *gameTimeSlider;
+@property (weak, nonatomic) IBOutlet UISlider *bubbleNumberSlider;
+@property (weak, nonatomic) IBOutlet UILabel *gameTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bubbleNumberLabel;
+- (IBAction)gameTimeSliderChange:(id)sender;
+- (IBAction)bubbleNumberSliderChange:(id)sender;
 
 
 @end

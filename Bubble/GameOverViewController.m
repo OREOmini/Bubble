@@ -8,6 +8,7 @@
 
 #import "GameOverViewController.h"
 #import "BubbleViewController.h"
+#import "ViewController.h"
 
 @interface GameOverViewController ()
 
@@ -38,18 +39,19 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//    BubbleViewController *des = segue.destinationViewController;
-//    des.userName = userName;
-//    des.bubbleNumber = bubbleNumber;
-//    des.gameTime = gameTime;
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+//    if(sender == _goBackToMenuBtn) {
+//        ViewController *des = segue.destinationViewController;
+//    }
+    if(sender == _restartBtn) {
+        BubbleViewController *des = segue.destinationViewController;
+        des.userName = userName;
+        des.bubbleNumber = bubbleNumber;
+        des.gameTime = gameTime;
 
-
-- (IBAction)goToViewController:(id)sender {
-    [self performSegueWithIdentifier:<#(nonnull NSString *)#> sender:<#(nullable id)#>]
-    //[self prepareForSegue: sender:<#(nullable id)#>]
+    }
 }
+
 @end
