@@ -17,7 +17,7 @@
 @property NSString *gameTime;
 @property NSNumber *bubbleNumber;
 @property float bubbleSize;
-@property NSMutableArray *bubbleSequence;
+@property int lastBubbleTag;
 @property (weak, nonatomic) IBOutlet UIView *bubbleView;
 @property (weak, nonatomic) IBOutlet UILabel *score;
 @property (weak, nonatomic) IBOutlet UILabel *highestSocre;
