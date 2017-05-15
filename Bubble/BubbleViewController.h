@@ -22,7 +22,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *score;
 @property (weak, nonatomic) IBOutlet UILabel *highestSocre;
 
--(IBAction)touchBubble:(UIButton*)sender;
+@property (weak, nonatomic) IBOutlet UIProgressView *timeProgressView;
+
+
+-(float) calculateBubbleSize;
+-(void) showBubbles;
+-(IBAction)touchBubble:(UIButton*)bubble;
+-(Boolean) isSequenceBubble:(UIButton*)bubble;
+-(void) popGainedScoreWithPoint:(int)point andBubble:(UIButton*)bubble withFlag:(Boolean)isExtraPoint;
+-(void) removeBubbles;
+-(void) updateTimer;
 -(UIButton*) createBubbleButtonWithColor:(NSString*)color withRect:(CGRect)rect;
+
 
 @end

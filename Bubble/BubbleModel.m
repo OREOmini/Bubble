@@ -34,20 +34,42 @@
     }
     return false;
 }
-
--(NSMutableArray*) generateBubblePositionsWithFrame:(CGRect)frame {
+-(NSMutableArray*) generateBubblePositionsWithFrame:(CGRect)frame
+                                    withRequiredNum:(int)num
+                                 andExistingBubbles:(NSMutableArray*) existingBubbles{
     NSMutableArray *bubblePositions = [[NSMutableArray alloc] init];
-    
-    for(int i = 0; i < bubbleNumber; i++) {
+    for (int i = 0; i < num; i++) {
         CGRect rect = [self generateRandomRectInFrame:frame];
-        while ([self rect:rect hasIntersectionInPos:bubblePositions]) {
+        while([self rect:rect hasIntersectionInPos:bubblePositions] ||
+              [self rect:rect hasIntersectionInPos:existingBubbles]) {
             rect = [self generateRandomRectInFrame:frame];
         }
         [bubblePositions addObject:[NSValue valueWithCGRect:rect]];
     }
-
-    
     return bubblePositions;
+}
+//-(NSMutableArray*) generateBubblePositionsWithFrame:(CGRect)frame {
+//    NSMutableArray *bubblePositions = [[NSMutableArray alloc] init];
+//    
+//    for(int i = 0; i < bubbleNumber; i++) {
+//        CGRect rect = [self generateRandomRectInFrame:frame];
+//        while ([self rect:rect hasIntersectionInPos:bubblePositions]) {
+//            rect = [self generateRandomRectInFrame:frame];
+//        }
+//        [bubblePositions addObject:[NSValue valueWithCGRect:rect]];
+//    }
+//
+//    
+//    return bubblePositions;
+//}
+-(NSMutableArray*)chooseRandomColorsWithNumber:(int)num {
+    NSMutableArray* colors = [self generateBubbleColors];
+    NSMutableArray* chosenColors = [[NSMutableArray alloc] init];
+    for(int i = 0; i < num; i++) {
+        int ran = (arc4random() % (int)bubbleNumber);
+        [chosenColors addObject:[colors objectAtIndex:ran]];
+    }
+    return chosenColors;
 }
 -(NSMutableArray*) generateBubbleColors {
     NSArray *colors = [[NSArray alloc] initWithObjects:@"red", @"green", @"blue", @"pink", @"black",nil];

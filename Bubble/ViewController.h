@@ -17,8 +17,13 @@
 @property (weak, nonatomic) IBOutlet UISlider *bubbleNumberSlider;
 @property (weak, nonatomic) IBOutlet UILabel *gameTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bubbleNumberLabel;
+
+
 - (IBAction)gameTimeSliderChange:(id)sender;
 - (IBAction)bubbleNumberSliderChange:(id)sender;
+- (IBAction)onDismissKeyboard:(id)sender;
+
+- (void)handleBackgroundTap:(UITapGestureRecognizer*) sender;
 
 
 @end

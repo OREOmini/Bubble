@@ -20,6 +20,9 @@ static const int SHOW_BUBBLE_SCORE_LABEL_TAG = 20;
 
 @end
 
+static NSMutableArray *existBubbles;
+static BubbleModel *bubbleModel;
+
 @implementation BubbleViewController
 
 @synthesize timeLabel;
@@ -31,6 +34,7 @@ static const int SHOW_BUBBLE_SCORE_LABEL_TAG = 20;
 @synthesize score;
 @synthesize bubbleSize;
 @synthesize lastBubbleTag;
+@synthesize timeProgressView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,75 +51,105 @@ static const int SHOW_BUBBLE_SCORE_LABEL_TAG = 20;
      self.timeLabel.tag = [gameTime intValue]; // tag is like an integer scratchpad
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES]; //sets up the timer of 1 sec interval
     
-    NSLog(@"%@", [NSString stringWithFormat:@"time:%@ number:%@", gameTime, bubbleNumber]);
+    // NSLog(@"%@", [NSString stringWithFormat:@"time:%@ number:%@", gameTime, bubbleNumber]);
     
     // TODO: set bubble size with larger bubble number
     // bubbleSize = self.view.frame.size.width / sqrt([bubbleNumber intValue]);
-    bubbleSize = 80;
+    bubbleSize = [self calculateBubbleSize];
+    // NSLog(@"%f",bubbleSize);
     lastBubbleTag = INT_MAX;
-    [self showBubbles];
-
-}
-
-- (void) showBubbles {
-    BubbleModel *bubbleModel;
+    existBubbles = [[NSMutableArray alloc]init];
+    
     bubbleModel = [[BubbleModel alloc] init];
     [bubbleModel setBubbleNumber:[bubbleNumber intValue]];
     [bubbleModel setBubbleSize: bubbleSize];
+
+    [self showBubbles];
+
+}
+-(float) calculateBubbleSize{
+    float width = self.view.frame.size.width;
+    float height = self.view.frame.size.height;
+    float temp = (width > height) ? height : width;
+    return (temp / sqrt([bubbleNumber intValue])) * 0.8;
+}
+
+- (void) showBubbles {
+
+    int willShowBubbleNumber = arc4random() % (int) ([bubbleNumber intValue] - existBubbles.count);
     
-    NSMutableArray *pos = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubblePositionsWithFrame:bubbleView.frame]];
-    NSMutableArray *colors = [[NSMutableArray alloc] initWithArray:[bubbleModel generateBubbleColors]];
+    NSMutableArray *pos = [[NSMutableArray alloc] initWithArray:[bubbleModel
+                                                                 generateBubblePositionsWithFrame:bubbleView.frame
+                                                                 withRequiredNum:willShowBubbleNumber andExistingBubbles:existBubbles]];
+    NSMutableArray *colors = [[NSMutableArray alloc]
+                              initWithArray:[bubbleModel chooseRandomColorsWithNumber:willShowBubbleNumber]];
     
-    
-    for(int i = 0; i < [bubbleNumber intValue]; i++) {
-        // TODO: better anomation?
+    for(int i = 0; i < willShowBubbleNumber; i++) {
+        // TODO: anamation
         CGRect rect = [[pos objectAtIndex:i] CGRectValue];
-        UIButton *button = [self createBubbleButtonWithColor:[colors objectAtIndex:i]
-                                                         withRect:rect];
+        [existBubbles addObject:[NSValue valueWithCGRect:rect]];
+        UIButton *button = [self createBubbleButtonWithColor:[colors objectAtIndex:i] withRect:rect];
+        
+        // animation
+        button.transform = CGAffineTransformMakeScale(0.1, 0.1);
+        [UIView animateWithDuration:0.3 animations:^() {
+            button.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        }];
+        
         [bubbleView addSubview:button];
     }
-    //[self.view addSubview:blueBubble];
 }
 
 - (IBAction)touchBubble:(UIButton*)bubble {
     //NSLog(@"BUBBLE %f %f", bubble.currentBackgroundImage., );
     
-    int point = [self getGainedPointWithBubble:bubble];
+    Boolean isExtraPoint = [self isSequenceBubble:bubble];
+    int point = (int)bubble.tag;
+    if (isExtraPoint) point = round(point*1.5);
     [score setText:[NSString stringWithFormat:@"%d", point+[score.text intValue]]];
-    [self popGainedScoreWithPoint:point andBubble:(UIButton*)bubble];
+    [self popGainedScoreWithPoint:point andBubble:(UIButton*)bubble withFlag:(Boolean)isExtraPoint];
     
+//    [UIView animateWithDuration:0.1 delay:0
+//                        options:UIViewAnimationOptionCurveEaseOut
+//                     animations:^(){
+//                         bubble.transform = CGAffineTransformMakeScale(1.5, 1.5);;
+//                     }
+//                     completion:^(BOOL finish) {
+//                         [bubble removeFromSuperview];
+//    }];
     [bubble removeFromSuperview];
-    
-    // NSLog(bubble.tag);
+    [existBubbles removeObject:[NSValue valueWithCGRect:bubble.frame]];
 }
--(int) getGainedPointWithBubble:(UIButton*)bubble {
-    int s = (int)bubble.tag;
-    //NSLog(@"1----%lu", (unsigned long)bubbleSequence.count);
+-(Boolean) isSequenceBubble:(UIButton*)bubble {
     // If two or more bubbles of the same colour are popped in a consecutive sequence
     // the bubbles after the first one will get 1.5 times of their original game points
+    int s = (int)bubble.tag;
     if(lastBubbleTag == INT_MAX) {
         lastBubbleTag = (int) bubble.tag;
+        return false;
     } else {
         if(lastBubbleTag == s) {
-            return round(s * 1.5);
+            return true;
         } else {
-            lastBubbleTag = INT_MAX;
-            return s;
+            lastBubbleTag = s;
+            return false;
         }
     }
-    //NSLog(@"2-----%lu", (unsigned long)bubbleSequence.count);
-    return s;
 }
 
--(void) popGainedScoreWithPoint:(int)point andBubble:(UIButton*)bubble {
-    CGRect rect = CGRectInset(bubble.frame, 0, 0);
+-(void) popGainedScoreWithPoint:(int)point andBubble:(UIButton*)bubble withFlag:(Boolean)isExtraPoint {
+    CGRect rect = CGRectMake(bubble.center.x - 50, bubble.center.y-50, 100, 100);
     UILabel *bubbleScoreLabel = [[UILabel alloc]initWithFrame:rect];
+    NSString *msg;
     // TODO: set different layout for sequence bubble
-    if(lastBubbleTag == INT_MAX)
-        bubbleScoreLabel.textColor = [UIColor blackColor];
-    else
+    if(isExtraPoint) {
         bubbleScoreLabel.textColor = [UIColor redColor];
-    bubbleScoreLabel.text = [NSString stringWithFormat:@"+%d", (int)point];
+        msg = [NSString stringWithFormat:@"COMBO! +%d", (int)point];
+    } else {
+        bubbleScoreLabel.textColor = [UIColor blackColor];
+        msg = [NSString stringWithFormat:@"+%d", (int)point];
+    }
+    bubbleScoreLabel.text = msg;
     bubbleScoreLabel.tag = SHOW_BUBBLE_SCORE_LABEL_TAG;
     [bubbleView addSubview:bubbleScoreLabel];
     
@@ -140,6 +174,7 @@ static const int SHOW_BUBBLE_SCORE_LABEL_TAG = 20;
     else {
         self.timeLabel.text = [NSString stringWithFormat: @"%d", tl];
         self.timeLabel.tag = tl;
+        timeProgressView.progress -= 1.0/ [gameTime floatValue];
     }
     
     [self removeBubbles];
@@ -147,9 +182,28 @@ static const int SHOW_BUBBLE_SCORE_LABEL_TAG = 20;
 }
 
 - (void) removeBubbles {
+    NSMutableArray * bubbles = [[NSMutableArray alloc] init];
     for(UIView* bubble in bubbleView.subviews)
         if(bubble.tag != SHOW_BUBBLE_SCORE_LABEL_TAG)
-            [bubble removeFromSuperview];
+            [bubbles addObject:bubble];
+    int randomRemoveNumber = arc4random() % (int) (existBubbles.count);
+    if(randomRemoveNumber > 0 && randomRemoveNumber < (int)existBubbles.count) {
+        for(int i = 0; i < randomRemoveNumber; i++) {
+            int ran = arc4random() % existBubbles.count;
+            UIView * temp = [bubbles objectAtIndex:ran];
+            [bubbles removeObjectAtIndex:ran];
+            
+//            temp.transform = CGAffineTransformMakeScale(0.1, 0.1);
+            [UIView animateWithDuration:0.3 animations:^() {
+                temp.transform = CGAffineTransformMakeScale(0.1, 0.1);
+            }completion:^(BOOL finish) {
+                [temp removeFromSuperview];
+            }];
+           
+            if(ran < existBubbles.count)
+                [existBubbles removeObjectAtIndex:ran];
+        }
+    }
 }
 
 
