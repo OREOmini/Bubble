@@ -74,6 +74,7 @@ static BubbleModel *bubbleModel;
     return (temp / sqrt([bubbleNumber intValue])) * 0.8;
 }
 
+#pragma mark - Show bubbles
 - (void) showBubbles {
 
     int willShowBubbleNumber = arc4random() % (int) ([bubbleNumber intValue] - existBubbles.count);
@@ -100,6 +101,23 @@ static BubbleModel *bubbleModel;
     }
 }
 
+-(UIButton*) createBubbleButtonWithColor:(NSString*)color withRect:(CGRect)rect {
+    NSString *imageName = [NSString stringWithFormat:@"%@_bubble.png", color];
+    
+    UIButton *bubble = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    bubble.frame = rect;
+    [bubble setTitle:@"" forState:UIControlStateNormal];
+    [bubble addTarget:self action:@selector(touchBubble:) forControlEvents:UIControlEventTouchUpInside];
+    [bubble setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    
+    NSInteger point = [[Bubble bubbleForColor:color] gamePoint];
+    //[bubble setValue:[NSNumber numberWithInteger:point] forKey:@"point"];
+    [bubble setTag:point];
+    
+    return bubble;
+}
+
+#pragma mark - when touch a bubble
 - (IBAction)touchBubble:(UIButton*)bubble {
     //NSLog(@"BUBBLE %f %f", bubble.currentBackgroundImage., );
     
@@ -161,6 +179,36 @@ static BubbleModel *bubbleModel;
     }];
 }
 
+
+#pragma mark - remove random bubbles
+- (void) removeBubbles {
+    NSMutableArray * bubbles = [[NSMutableArray alloc] init];
+    for(UIView* bubble in bubbleView.subviews)
+        if(bubble.tag != SHOW_BUBBLE_SCORE_LABEL_TAG)
+            [bubbles addObject:bubble];
+    int randomRemoveNumber = arc4random() % (int) (existBubbles.count);
+    if(randomRemoveNumber > 0 && randomRemoveNumber < (int)existBubbles.count) {
+        for(int i = 0; i < randomRemoveNumber; i++) {
+            int ran = arc4random() % existBubbles.count;
+            UIView * temp = [bubbles objectAtIndex:ran];
+            [bubbles removeObjectAtIndex:ran];
+            
+            //            temp.transform = CGAffineTransformMakeScale(0.1, 0.1);
+            [UIView animateWithDuration:0.3 animations:^() {
+                temp.transform = CGAffineTransformMakeScale(0.1, 0.1);
+            }completion:^(BOOL finish) {
+                [temp removeFromSuperview];
+            }];
+            
+            if(ran < existBubbles.count)
+                [existBubbles removeObjectAtIndex:ran];
+        }
+    }
+}
+
+
+
+#pragma mark - timer function
 - (void) updateTimer
 {
     int tl = (int)self.timeLabel.tag - 1;
@@ -181,47 +229,6 @@ static BubbleModel *bubbleModel;
     [self showBubbles];
 }
 
-- (void) removeBubbles {
-    NSMutableArray * bubbles = [[NSMutableArray alloc] init];
-    for(UIView* bubble in bubbleView.subviews)
-        if(bubble.tag != SHOW_BUBBLE_SCORE_LABEL_TAG)
-            [bubbles addObject:bubble];
-    int randomRemoveNumber = arc4random() % (int) (existBubbles.count);
-    if(randomRemoveNumber > 0 && randomRemoveNumber < (int)existBubbles.count) {
-        for(int i = 0; i < randomRemoveNumber; i++) {
-            int ran = arc4random() % existBubbles.count;
-            UIView * temp = [bubbles objectAtIndex:ran];
-            [bubbles removeObjectAtIndex:ran];
-            
-//            temp.transform = CGAffineTransformMakeScale(0.1, 0.1);
-            [UIView animateWithDuration:0.3 animations:^() {
-                temp.transform = CGAffineTransformMakeScale(0.1, 0.1);
-            }completion:^(BOOL finish) {
-                [temp removeFromSuperview];
-            }];
-           
-            if(ran < existBubbles.count)
-                [existBubbles removeObjectAtIndex:ran];
-        }
-    }
-}
-
-
--(UIButton*) createBubbleButtonWithColor:(NSString*)color withRect:(CGRect)rect {
-    NSString *imageName = [NSString stringWithFormat:@"%@_bubble.png", color];
-    
-    UIButton *bubble = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    bubble.frame = rect;
-    [bubble setTitle:@"" forState:UIControlStateNormal];
-    [bubble addTarget:self action:@selector(touchBubble:) forControlEvents:UIControlEventTouchUpInside];
-    [bubble setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    
-    NSInteger point = [[Bubble bubbleForColor:color] gamePoint];
-    //[bubble setValue:[NSNumber numberWithInteger:point] forKey:@"point"];
-    [bubble setTag:point];
-    
-    return bubble;
-}
 
 
 

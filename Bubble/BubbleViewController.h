@@ -25,8 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *timeProgressView;
 
 
--(float) calculateBubbleSize;
--(void) showBubbles;
 -(IBAction)touchBubble:(UIButton*)bubble;
 -(Boolean) isSequenceBubble:(UIButton*)bubble;
 -(void) popGainedScoreWithPoint:(int)point andBubble:(UIButton*)bubble withFlag:(Boolean)isExtraPoint;
