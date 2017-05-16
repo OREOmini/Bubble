@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "Player+CoreDataProperties.h"
 
 @interface AppDelegate ()
+
+-(void) loadData;
 
 @end
 
@@ -17,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self loadData];
     return YES;
 }
 
@@ -45,6 +49,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self saveContext];
 }
 
 #pragma mark - Core Data stack
@@ -78,7 +83,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"demo_coredata" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"bubblepop_coredate" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -92,7 +97,7 @@
     // Create the coordinator and store
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"demo_coredata.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"bubblepop_coredate.sqlite"];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
@@ -126,6 +131,35 @@
     }
 }
 
+-(void) loadData {
+    NSFetchRequest * request = [[NSFetchRequest alloc]init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Player"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray* loadPerson = [self.managedObjectContext executeFetchRequest:request
+                                                                   error:&error];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"score" ascending:NO];
+    sortDescriptors_ = [NSArray arrayWithObject:sortDescriptor];
+    knownScoreList_ = [[loadPerson sortedArrayUsingDescriptors:sortDescriptors_] mutableCopy];
+}
+
+- (NSMutableArray*)addNewPlayer:(NSString*)name score:(NSNumber*)score bubbleNumber:(NSNumber*)bubble_number gameTime:(NSNumber*) game_time {
+    Player * player = (Player*) [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
+    player.name = name;
+    player.score = [score intValue];
+    player.game_time = [game_time intValue];
+    player.bubble_number = [bubble_number intValue];
+    
+    [knownScoreList_ addObject:player];
+    knownScoreList_ = [[knownScoreList_ sortedArrayUsingDescriptors:sortDescriptors_] mutableCopy];
+    [self saveContext];
+    return knownScoreList_;
+}
+- (NSMutableArray*)scoreList {
+    return knownScoreList_;
+}
 
 
 @end

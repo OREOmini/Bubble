@@ -38,11 +38,12 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"start_game"]) {
     BubbleViewController *des = segue.destinationViewController;
     des.userName = nameField.text;
     des.gameTime = [NSString stringWithFormat:@"%d", (int)gameTimeSlider.value];
     des.bubbleNumber = [NSNumber numberWithInt:(int)bubbleNumberSlider.value];
-    
+    }
 }
 
 
