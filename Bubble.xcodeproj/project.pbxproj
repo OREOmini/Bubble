@@ -28,6 +28,8 @@
 		DEA488711EC48AD800738703 /* Icon6.png in Resources */ = {isa = PBXBuildFile; fileRef = DEA488701EC48AD800738703 /* Icon6.png */; };
 		DEEC33081ECAAB5C00CBC145 /* Player+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC33061ECAAB5C00CBC145 /* Player+CoreDataProperties.m */; };
 		DEEC330B1ECAB7C700CBC145 /* scoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC330A1ECAB7C700CBC145 /* scoresViewController.m */; };
+		DEEC330E1ECB1C7200CBC145 /* HighScoreList.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC330D1ECB1C7200CBC145 /* HighScoreList.m */; };
+		DEEC33111ECB372D00CBC145 /* UIButton+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC33101ECB372D00CBC145 /* UIButton+Border.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,10 @@
 		DEEC33061ECAAB5C00CBC145 /* Player+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Player+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DEEC33091ECAB7C700CBC145 /* scoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scoresViewController.h; sourceTree = "<group>"; };
 		DEEC330A1ECAB7C700CBC145 /* scoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scoresViewController.m; sourceTree = "<group>"; };
+		DEEC330C1ECB1C7200CBC145 /* HighScoreList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreList.h; sourceTree = "<group>"; };
+		DEEC330D1ECB1C7200CBC145 /* HighScoreList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreList.m; sourceTree = "<group>"; };
+		DEEC330F1ECB372D00CBC145 /* UIButton+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Border.h"; sourceTree = "<group>"; };
+		DEEC33101ECB372D00CBC145 /* UIButton+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Border.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 			children = (
 				DE7ECED81EBE91EE00EDCB3E /* AppDelegate.h */,
 				DE7ECED91EBE91EE00EDCB3E /* AppDelegate.m */,
+				DE7ECED51EBE91EE00EDCB3E /* Supporting Files */,
 				DE7ECEFF1EBEDF3B00EDCB3E /* resources */,
 				DE83C0231EC99A940021DC8C /* viewControllers */,
 				DE7ECEDE1EBE91EE00EDCB3E /* Main.storyboard */,
@@ -108,9 +115,12 @@
 				DE7ECF0B1EC0742900EDCB3E /* BubbleModel.m */,
 				DE7ECEE31EBE91EE00EDCB3E /* LaunchScreen.storyboard */,
 				DE7ECEE61EBE91EE00EDCB3E /* Info.plist */,
-				DE7ECED51EBE91EE00EDCB3E /* Supporting Files */,
 				DE7ECF101EC07AB600EDCB3E /* Bubble.h */,
 				DE7ECF111EC07AB600EDCB3E /* Bubble.m */,
+				DEEC330C1ECB1C7200CBC145 /* HighScoreList.h */,
+				DEEC330D1ECB1C7200CBC145 /* HighScoreList.m */,
+				DEEC330F1ECB372D00CBC145 /* UIButton+Border.h */,
+				DEEC33101ECB372D00CBC145 /* UIButton+Border.m */,
 			);
 			path = Bubble;
 			sourceTree = "<group>";
@@ -246,7 +256,9 @@
 				DE7ECEDA1EBE91EE00EDCB3E /* AppDelegate.m in Sources */,
 				DE7ECEF11EBEA5CB00EDCB3E /* GameOverViewController.m in Sources */,
 				DE7ECF151EC0841200EDCB3E /* BubbleViewController.m in Sources */,
+				DEEC330E1ECB1C7200CBC145 /* HighScoreList.m in Sources */,
 				DE7ECED71EBE91EE00EDCB3E /* main.m in Sources */,
+				DEEC33111ECB372D00CBC145 /* UIButton+Border.m in Sources */,
 				DEEC33081ECAAB5C00CBC145 /* Player+CoreDataProperties.m in Sources */,
 				DE7ECF0C1EC0742900EDCB3E /* BubbleModel.m in Sources */,
 				DE7ECF121EC07AB600EDCB3E /* Bubble.m in Sources */,

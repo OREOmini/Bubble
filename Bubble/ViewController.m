@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "BubbleViewController.h"
+#import "UIButton+Border.h"
 
 @interface ViewController ()
 
@@ -22,14 +23,24 @@
 @synthesize bubbleNumberSlider;
 @synthesize gameTimeLabel;
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [startBtn addBottomBorderWithColor:[UIColor redColor] andWidth:50.2];
+    [startBtn setBackgroundColor];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     UITapGestureRecognizer * tapRecogniser = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                      action:@selector(handleBackgroundTap:)];
+    [startBtn addBottomBorderWithColor:[UIColor redColor] andWidth:50.2];
+    [startBtn setBackgroundColor];
+
     tapRecogniser.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapRecogniser];
+    
 }
 
 
