@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "BubbleViewController.h"
-#import "UIButton+Border.h"
 
 @interface ViewController ()
 
@@ -23,11 +22,6 @@
 @synthesize bubbleNumberSlider;
 @synthesize gameTimeLabel;
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [startBtn addBottomBorderWithColor:[UIColor redColor] andWidth:50.2];
-    [startBtn setBackgroundColor];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,8 +29,7 @@
     
     UITapGestureRecognizer * tapRecogniser = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                      action:@selector(handleBackgroundTap:)];
-    [startBtn addBottomBorderWithColor:[UIColor redColor] andWidth:50.2];
-    [startBtn setBackgroundColor];
+
 
     tapRecogniser.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapRecogniser];
@@ -61,20 +54,20 @@
 - (IBAction)startGame:(id)sender {
     [self onDismissKeyboard:sender];
     
-//    NSString *username = nameField.text;
-//    if(username.length == 0) {
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Please enter username"
-//                                                                       message:@"Please enter username"
-//                                                                preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
-//                                                         style:UIAlertActionStyleDefault
-//                                                       handler:^(UIAlertAction* action) {}];
-//        [alert addAction:action];
-//        [self presentViewController:alert animated:YES completion:nil];
-//       
-//    } else {
-//        [self performSegueWithIdentifier:@"start_game" sender:nil];
-//    }
+    NSString *username = nameField.text;
+    if(username.length == 0) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Player Name"
+                                                                       message:@"Please enter player name"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction* action) {}];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+       
+    } else {
+        [self performSegueWithIdentifier:@"start_game" sender:nil];
+    }
     [self performSegueWithIdentifier:@"start_game" sender:nil];
 }
 - (IBAction)gameTimeSliderChange:(id)sender {

@@ -29,6 +29,11 @@
 @synthesize scoreTableView;
 @synthesize highScoreList;
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self addCurrentScoreToCoredata];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -40,7 +45,7 @@
     
     self.scoreTableView.delegate = highScoreList;
     self.scoreTableView.dataSource = highScoreList;
-    //[self addCurrentScoreToCoredata];
+    
     [self.scoreTableView reloadData];
     
     showScoreLabel.text = [NSString stringWithFormat:@"%@, your socre is %d", userName, score];
@@ -52,7 +57,8 @@
 }
 
 -(void)addCurrentScoreToCoredata {
-    scoreList_ = [appDelegate_ addNewPlayer:userName score:[NSNumber numberWithInt:score] bubbleNumber:bubbleNumber gameTime:[NSNumber numberWithInt:[gameTime intValue]]];
+    if (scoreList_.count < 10)
+        scoreList_ = [appDelegate_ addNewPlayer:userName score:[NSNumber numberWithInt:score] bubbleNumber:bubbleNumber gameTime:[NSNumber numberWithInt:[gameTime intValue]]];
 }
 
 
@@ -73,48 +79,6 @@
 
     }
 }
-
-#pragma mark - Score table view
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return [scoreList_ count];
-//}
-//
-//- (NSInteger)numberOfSectionsInTableView: (UITableView *) tableView
-//{
-//    return 1; ////return the number of sections
-//}
-//
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"pp" forIndexPath:indexPath];
-//    
-//    Player * player = (Player *)[scoreList_ objectAtIndex: indexPath.row];
-//    cell.textLabel.text = player.name;
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", player.score];
-//    
-//    // Configure the cell to present data...
-//    //cell.detailTextLabel.text = player.top_score.stringValue;
-//    
-//    return cell;
-//    
-//}
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    Player * player = (Player *)[scoreList_ objectAtIndex: indexPath.row];
-//    NSString *msg =[NSString stringWithFormat:@"name:%@ score:%hd gametime:%d maxbubblenumber:%d", player.name, player.score, player.game_time, player.bubble_number];
-//
-//    
-//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"selected player"
-//                                                                   message:msg
-//                                                            preferredStyle:UIAlertControllerStyleAlert];
-//    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
-//                                                     style:UIAlertActionStyleDefault
-//                                                   handler:^(UIAlertAction* action) {}];
-//    [alert addAction:action];
-//    [self presentViewController:alert animated:YES completion:nil];
-//}
 
 
 

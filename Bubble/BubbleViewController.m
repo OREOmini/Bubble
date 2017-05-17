@@ -9,6 +9,7 @@
 #import "BubbleViewController.h"
 #import "BubbleModel.h"
 #import "GameOverViewController.h"
+#import "AppDelegate.h"
 
 // static const int BUBBLE_TAG = 1;
 static const int SHOW_BUBBLE_SCORE_LABEL_TAG = 20;
@@ -16,6 +17,7 @@ static const int SHOW_BUBBLE_SCORE_LABEL_TAG = 20;
 
 @interface BubbleViewController () {
     NSTimer *timer;
+    AppDelegate * appDelegate;
 }
 
 @end
@@ -39,6 +41,8 @@ static BubbleModel *bubbleModel;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    highestSocre.text = [NSString stringWithFormat:@"%d", appDelegate.getHighestScore];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -156,15 +160,17 @@ static BubbleModel *bubbleModel;
 }
 
 -(void) popGainedScoreWithPoint:(int)point andBubble:(UIButton*)bubble withFlag:(Boolean)isExtraPoint {
-    CGRect rect = CGRectMake(bubble.center.x - 50, bubble.center.y-50, 100, 100);
+    CGRect rect = CGRectMake(bubble.center.x - 50, bubble.center.y-50, 120, 100);
     UILabel *bubbleScoreLabel = [[UILabel alloc]initWithFrame:rect];
+    bubbleScoreLabel.textAlignment = NSTextAlignmentCenter;
     NSString *msg;
-    // TODO: set different layout for sequence bubble
+    
     if(isExtraPoint) {
-        bubbleScoreLabel.textColor = [UIColor redColor];
-        msg = [NSString stringWithFormat:@"COMBO! +%d", (int)point];
+        bubbleScoreLabel.textColor = [UIColor colorWithHue:0.05 saturation:0.77 brightness:0.75 alpha:1];
+        bubbleScoreLabel.numberOfLines = 2;
+        msg = [NSString stringWithFormat:@"COMBO!x1.5 +%d", (int)point];
     } else {
-        bubbleScoreLabel.textColor = [UIColor blackColor];
+        bubbleScoreLabel.textColor = [UIColor darkGrayColor];
         msg = [NSString stringWithFormat:@"+%d", (int)point];
     }
     bubbleScoreLabel.text = msg;

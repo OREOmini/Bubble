@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Player+CoreDataProperties.h"
+#import "UILabel+Helper.h"
+#import <UIKit/UIKit.h>
 
 @interface AppDelegate ()
 
@@ -21,6 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self loadData];
+    [[UILabel appearance] setSubstituteFontName:@"Futura"];
     return YES;
 }
 
@@ -159,6 +162,11 @@
 }
 - (NSMutableArray*)scoreList {
     return knownScoreList_;
+}
+
+- (int)getHighestScore {
+    Player *p = [knownScoreList_ objectAtIndex:0];
+    return p.score;
 }
 
 

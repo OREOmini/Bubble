@@ -26,6 +26,7 @@
 
 - (NSMutableArray*)addNewPlayer:(NSString*)name score:(NSNumber*)score bubbleNumber:(NSNumber*)bubble_number gameTime:(NSNumber*) game_time;
 - (NSMutableArray*)scoreList;
+- (int)getHighestScore;
 
 @end
 

@@ -14,11 +14,6 @@
 		DE7ECEE21EBE91EE00EDCB3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECEE11EBE91EE00EDCB3E /* Assets.xcassets */; };
 		DE7ECEE51EBE91EE00EDCB3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECEE31EBE91EE00EDCB3E /* LaunchScreen.storyboard */; };
 		DE7ECEF11EBEA5CB00EDCB3E /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECEF01EBEA5CB00EDCB3E /* GameOverViewController.m */; };
-		DE7ECF051EBEDF3B00EDCB3E /* black_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECF001EBEDF3B00EDCB3E /* black_bubble.png */; };
-		DE7ECF061EBEDF3B00EDCB3E /* blue_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECF011EBEDF3B00EDCB3E /* blue_bubble.png */; };
-		DE7ECF071EBEDF3B00EDCB3E /* green_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECF021EBEDF3B00EDCB3E /* green_bubble.png */; };
-		DE7ECF081EBEDF3B00EDCB3E /* pink_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECF031EBEDF3B00EDCB3E /* pink_bubble.png */; };
-		DE7ECF091EBEDF3B00EDCB3E /* red_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DE7ECF041EBEDF3B00EDCB3E /* red_bubble.png */; };
 		DE7ECF0C1EC0742900EDCB3E /* BubbleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECF0B1EC0742900EDCB3E /* BubbleModel.m */; };
 		DE7ECF121EC07AB600EDCB3E /* Bubble.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECF111EC07AB600EDCB3E /* Bubble.m */; };
 		DE7ECF151EC0841200EDCB3E /* BubbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECF131EC0841200EDCB3E /* BubbleViewController.m */; };
@@ -30,6 +25,17 @@
 		DEEC330B1ECAB7C700CBC145 /* scoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC330A1ECAB7C700CBC145 /* scoresViewController.m */; };
 		DEEC330E1ECB1C7200CBC145 /* HighScoreList.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC330D1ECB1C7200CBC145 /* HighScoreList.m */; };
 		DEEC33111ECB372D00CBC145 /* UIButton+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC33101ECB372D00CBC145 /* UIButton+Border.m */; };
+		DEEC33151ECBD9FE00CBC145 /* Herculanum.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33141ECBD9FE00CBC145 /* Herculanum.ttf */; };
+		DEEC331B1ECBE7E300CBC145 /* green_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33161ECBE7E300CBC145 /* green_bubble.png */; };
+		DEEC331C1ECBE7E300CBC145 /* pink_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33171ECBE7E300CBC145 /* pink_bubble.png */; };
+		DEEC331D1ECBE7E300CBC145 /* blue_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33181ECBE7E300CBC145 /* blue_bubble.png */; };
+		DEEC331E1ECBE7E300CBC145 /* black_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33191ECBE7E300CBC145 /* black_bubble.png */; };
+		DEEC331F1ECBE7E300CBC145 /* red_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC331A1ECBE7E300CBC145 /* red_bubble.png */; };
+		DEEC33251ECBEB4800CBC145 /* UILabel+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC33241ECBEB4800CBC145 /* UILabel+Helper.m */; };
+		DEEC33271ECC015200CBC145 /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33261ECC015200CBC145 /* start_button.png */; };
+		DEEC332B1ECC06E400CBC145 /* restart_buttom.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC332A1ECC06E400CBC145 /* restart_buttom.png */; };
+		DEEC332D1ECC073D00CBC145 /* show_score_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC332C1ECC073D00CBC145 /* show_score_button.png */; };
+		DEEC332F1ECC0C9F00CBC145 /* goBack_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC332E1ECC0C9F00CBC145 /* goBack_button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,11 +51,6 @@
 		DE7ECEE61EBE91EE00EDCB3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE7ECEEF1EBEA5CB00EDCB3E /* GameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverViewController.h; path = ../GameOverViewController.h; sourceTree = "<group>"; };
 		DE7ECEF01EBEA5CB00EDCB3E /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverViewController.m; path = ../GameOverViewController.m; sourceTree = "<group>"; };
-		DE7ECF001EBEDF3B00EDCB3E /* black_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_bubble.png; sourceTree = "<group>"; };
-		DE7ECF011EBEDF3B00EDCB3E /* blue_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_bubble.png; sourceTree = "<group>"; };
-		DE7ECF021EBEDF3B00EDCB3E /* green_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_bubble.png; sourceTree = "<group>"; };
-		DE7ECF031EBEDF3B00EDCB3E /* pink_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_bubble.png; sourceTree = "<group>"; };
-		DE7ECF041EBEDF3B00EDCB3E /* red_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_bubble.png; sourceTree = "<group>"; };
 		DE7ECF0A1EC0742900EDCB3E /* BubbleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BubbleModel.h; path = Bubble/BubbleModel.h; sourceTree = SOURCE_ROOT; };
 		DE7ECF0B1EC0742900EDCB3E /* BubbleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BubbleModel.m; path = Bubble/BubbleModel.m; sourceTree = SOURCE_ROOT; };
 		DE7ECF101EC07AB600EDCB3E /* Bubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubble.h; sourceTree = "<group>"; };
@@ -68,6 +69,18 @@
 		DEEC330D1ECB1C7200CBC145 /* HighScoreList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreList.m; sourceTree = "<group>"; };
 		DEEC330F1ECB372D00CBC145 /* UIButton+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Border.h"; sourceTree = "<group>"; };
 		DEEC33101ECB372D00CBC145 /* UIButton+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Border.m"; sourceTree = "<group>"; };
+		DEEC33141ECBD9FE00CBC145 /* Herculanum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Herculanum.ttf; sourceTree = "<group>"; };
+		DEEC33161ECBE7E300CBC145 /* green_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_bubble.png; sourceTree = "<group>"; };
+		DEEC33171ECBE7E300CBC145 /* pink_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_bubble.png; sourceTree = "<group>"; };
+		DEEC33181ECBE7E300CBC145 /* blue_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_bubble.png; sourceTree = "<group>"; };
+		DEEC33191ECBE7E300CBC145 /* black_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_bubble.png; sourceTree = "<group>"; };
+		DEEC331A1ECBE7E300CBC145 /* red_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_bubble.png; sourceTree = "<group>"; };
+		DEEC33231ECBEB4800CBC145 /* UILabel+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Helper.h"; sourceTree = "<group>"; };
+		DEEC33241ECBEB4800CBC145 /* UILabel+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Helper.m"; sourceTree = "<group>"; };
+		DEEC33261ECC015200CBC145 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_button.png; sourceTree = "<group>"; };
+		DEEC332A1ECC06E400CBC145 /* restart_buttom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restart_buttom.png; sourceTree = "<group>"; };
+		DEEC332C1ECC073D00CBC145 /* show_score_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = show_score_button.png; sourceTree = "<group>"; };
+		DEEC332E1ECC0C9F00CBC145 /* goBack_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goBack_button.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +134,8 @@
 				DEEC330D1ECB1C7200CBC145 /* HighScoreList.m */,
 				DEEC330F1ECB372D00CBC145 /* UIButton+Border.h */,
 				DEEC33101ECB372D00CBC145 /* UIButton+Border.m */,
+				DEEC33231ECBEB4800CBC145 /* UILabel+Helper.h */,
+				DEEC33241ECBEB4800CBC145 /* UILabel+Helper.m */,
 			);
 			path = Bubble;
 			sourceTree = "<group>";
@@ -137,13 +152,18 @@
 		DE7ECEFF1EBEDF3B00EDCB3E /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				DE7ECF001EBEDF3B00EDCB3E /* black_bubble.png */,
+				DEEC332E1ECC0C9F00CBC145 /* goBack_button.png */,
+				DEEC332C1ECC073D00CBC145 /* show_score_button.png */,
+				DEEC332A1ECC06E400CBC145 /* restart_buttom.png */,
+				DEEC33261ECC015200CBC145 /* start_button.png */,
+				DEEC33161ECBE7E300CBC145 /* green_bubble.png */,
+				DEEC33171ECBE7E300CBC145 /* pink_bubble.png */,
+				DEEC33181ECBE7E300CBC145 /* blue_bubble.png */,
+				DEEC33191ECBE7E300CBC145 /* black_bubble.png */,
+				DEEC331A1ECBE7E300CBC145 /* red_bubble.png */,
+				DEEC33141ECBD9FE00CBC145 /* Herculanum.ttf */,
 				DEA488701EC48AD800738703 /* Icon6.png */,
-				DE7ECF011EBEDF3B00EDCB3E /* blue_bubble.png */,
 				DEA4886E1EC48A8C00738703 /* Icon.png */,
-				DE7ECF021EBEDF3B00EDCB3E /* green_bubble.png */,
-				DE7ECF031EBEDF3B00EDCB3E /* pink_bubble.png */,
-				DE7ECF041EBEDF3B00EDCB3E /* red_bubble.png */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -231,16 +251,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEEC331B1ECBE7E300CBC145 /* green_bubble.png in Resources */,
+				DEEC332D1ECC073D00CBC145 /* show_score_button.png in Resources */,
+				DEEC331E1ECBE7E300CBC145 /* black_bubble.png in Resources */,
 				DEA4886F1EC48A8C00738703 /* Icon.png in Resources */,
 				DE7ECEE51EBE91EE00EDCB3E /* LaunchScreen.storyboard in Resources */,
-				DE7ECF071EBEDF3B00EDCB3E /* green_bubble.png in Resources */,
+				DEEC33271ECC015200CBC145 /* start_button.png in Resources */,
+				DEEC332B1ECC06E400CBC145 /* restart_buttom.png in Resources */,
 				DE7ECEE21EBE91EE00EDCB3E /* Assets.xcassets in Resources */,
-				DE7ECF061EBEDF3B00EDCB3E /* blue_bubble.png in Resources */,
+				DEEC33151ECBD9FE00CBC145 /* Herculanum.ttf in Resources */,
 				DEA488711EC48AD800738703 /* Icon6.png in Resources */,
+				DEEC331F1ECBE7E300CBC145 /* red_bubble.png in Resources */,
 				DE7ECEE01EBE91EE00EDCB3E /* Main.storyboard in Resources */,
-				DE7ECF051EBEDF3B00EDCB3E /* black_bubble.png in Resources */,
-				DE7ECF081EBEDF3B00EDCB3E /* pink_bubble.png in Resources */,
-				DE7ECF091EBEDF3B00EDCB3E /* red_bubble.png in Resources */,
+				DEEC331D1ECBE7E300CBC145 /* blue_bubble.png in Resources */,
+				DEEC332F1ECC0C9F00CBC145 /* goBack_button.png in Resources */,
+				DEEC331C1ECBE7E300CBC145 /* pink_bubble.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +285,7 @@
 				DE7ECED71EBE91EE00EDCB3E /* main.m in Sources */,
 				DEEC33111ECB372D00CBC145 /* UIButton+Border.m in Sources */,
 				DEEC33081ECAAB5C00CBC145 /* Player+CoreDataProperties.m in Sources */,
+				DEEC33251ECBEB4800CBC145 /* UILabel+Helper.m in Sources */,
 				DE7ECF0C1EC0742900EDCB3E /* BubbleModel.m in Sources */,
 				DE7ECF121EC07AB600EDCB3E /* Bubble.m in Sources */,
 				DEEC330B1ECAB7C700CBC145 /* scoresViewController.m in Sources */,
@@ -381,7 +407,6 @@
 		DE7ECEEA1EBE91EE00EDCB3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7JXNRRJB37;
 				INFOPLIST_FILE = Bubble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -393,7 +418,6 @@
 		DE7ECEEB1EBE91EE00EDCB3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7JXNRRJB37;
 				INFOPLIST_FILE = Bubble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
