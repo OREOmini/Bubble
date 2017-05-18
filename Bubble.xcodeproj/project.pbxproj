@@ -19,20 +19,20 @@
 		DE7ECF151EC0841200EDCB3E /* BubbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7ECF131EC0841200EDCB3E /* BubbleViewController.m */; };
 		DE83C0221EC99A1E0021DC8C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE83C0211EC99A1E0021DC8C /* CoreData.framework */; };
 		DE83C0261EC99CE00021DC8C /* bubblepop_coredate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE83C0241EC99CE00021DC8C /* bubblepop_coredate.xcdatamodeld */; };
-		DEA4886F1EC48A8C00738703 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DEA4886E1EC48A8C00738703 /* Icon.png */; };
-		DEA488711EC48AD800738703 /* Icon6.png in Resources */ = {isa = PBXBuildFile; fileRef = DEA488701EC48AD800738703 /* Icon6.png */; };
+		DED2EB6A1ECD1A700059840B /* pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DED2EB691ECD1A700059840B /* pop.mp3 */; };
+		DED2EB6C1ECD1BDB0059840B /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DED2EB6B1ECD1BDB0059840B /* start_button.png */; };
+		DEE4C0FA1ECC7155001A3C40 /* main_menu_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE4C0F91ECC7155001A3C40 /* main_menu_button.png */; };
+		DEE4C0FC1ECC8168001A3C40 /* game_img.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE4C0FB1ECC8168001A3C40 /* game_img.png */; };
+		DEE4C0FE1ECC81D2001A3C40 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DEE4C0FD1ECC81D2001A3C40 /* Icon.png */; };
 		DEEC33081ECAAB5C00CBC145 /* Player+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC33061ECAAB5C00CBC145 /* Player+CoreDataProperties.m */; };
 		DEEC330B1ECAB7C700CBC145 /* scoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC330A1ECAB7C700CBC145 /* scoresViewController.m */; };
 		DEEC330E1ECB1C7200CBC145 /* HighScoreList.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC330D1ECB1C7200CBC145 /* HighScoreList.m */; };
-		DEEC33111ECB372D00CBC145 /* UIButton+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC33101ECB372D00CBC145 /* UIButton+Border.m */; };
-		DEEC33151ECBD9FE00CBC145 /* Herculanum.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33141ECBD9FE00CBC145 /* Herculanum.ttf */; };
 		DEEC331B1ECBE7E300CBC145 /* green_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33161ECBE7E300CBC145 /* green_bubble.png */; };
 		DEEC331C1ECBE7E300CBC145 /* pink_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33171ECBE7E300CBC145 /* pink_bubble.png */; };
 		DEEC331D1ECBE7E300CBC145 /* blue_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33181ECBE7E300CBC145 /* blue_bubble.png */; };
 		DEEC331E1ECBE7E300CBC145 /* black_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33191ECBE7E300CBC145 /* black_bubble.png */; };
 		DEEC331F1ECBE7E300CBC145 /* red_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC331A1ECBE7E300CBC145 /* red_bubble.png */; };
 		DEEC33251ECBEB4800CBC145 /* UILabel+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEC33241ECBEB4800CBC145 /* UILabel+Helper.m */; };
-		DEEC33271ECC015200CBC145 /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC33261ECC015200CBC145 /* start_button.png */; };
 		DEEC332B1ECC06E400CBC145 /* restart_buttom.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC332A1ECC06E400CBC145 /* restart_buttom.png */; };
 		DEEC332D1ECC073D00CBC145 /* show_score_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC332C1ECC073D00CBC145 /* show_score_button.png */; };
 		DEEC332F1ECC0C9F00CBC145 /* goBack_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEC332E1ECC0C9F00CBC145 /* goBack_button.png */; };
@@ -59,17 +59,17 @@
 		DE7ECF141EC0841200EDCB3E /* BubbleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BubbleViewController.h; path = ../BubbleViewController.h; sourceTree = "<group>"; };
 		DE83C0211EC99A1E0021DC8C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DE83C0251EC99CE00021DC8C /* bubblepop_coredate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bubblepop_coredate.xcdatamodel; sourceTree = "<group>"; };
-		DEA4886E1EC48A8C00738703 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		DEA488701EC48AD800738703 /* Icon6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon6.png; sourceTree = "<group>"; };
-		DEEC33051ECAAB5C00CBC145 /* Player+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Player+CoreDataProperties.h"; sourceTree = "<group>"; };
-		DEEC33061ECAAB5C00CBC145 /* Player+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Player+CoreDataProperties.m"; sourceTree = "<group>"; };
+		DED2EB691ECD1A700059840B /* pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pop.mp3; sourceTree = "<group>"; };
+		DED2EB6B1ECD1BDB0059840B /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_button.png; sourceTree = "<group>"; };
+		DEE4C0F91ECC7155001A3C40 /* main_menu_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_menu_button.png; sourceTree = "<group>"; };
+		DEE4C0FB1ECC8168001A3C40 /* game_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_img.png; sourceTree = "<group>"; };
+		DEE4C0FD1ECC81D2001A3C40 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		DEEC33051ECAAB5C00CBC145 /* Player+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Player+CoreDataProperties.h"; path = "../Player+CoreDataProperties.h"; sourceTree = "<group>"; };
+		DEEC33061ECAAB5C00CBC145 /* Player+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Player+CoreDataProperties.m"; path = "../Player+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DEEC33091ECAB7C700CBC145 /* scoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scoresViewController.h; sourceTree = "<group>"; };
 		DEEC330A1ECAB7C700CBC145 /* scoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scoresViewController.m; sourceTree = "<group>"; };
 		DEEC330C1ECB1C7200CBC145 /* HighScoreList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreList.h; sourceTree = "<group>"; };
 		DEEC330D1ECB1C7200CBC145 /* HighScoreList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreList.m; sourceTree = "<group>"; };
-		DEEC330F1ECB372D00CBC145 /* UIButton+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Border.h"; sourceTree = "<group>"; };
-		DEEC33101ECB372D00CBC145 /* UIButton+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Border.m"; sourceTree = "<group>"; };
-		DEEC33141ECBD9FE00CBC145 /* Herculanum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Herculanum.ttf; sourceTree = "<group>"; };
 		DEEC33161ECBE7E300CBC145 /* green_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_bubble.png; sourceTree = "<group>"; };
 		DEEC33171ECBE7E300CBC145 /* pink_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_bubble.png; sourceTree = "<group>"; };
 		DEEC33181ECBE7E300CBC145 /* blue_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_bubble.png; sourceTree = "<group>"; };
@@ -77,7 +77,6 @@
 		DEEC331A1ECBE7E300CBC145 /* red_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_bubble.png; sourceTree = "<group>"; };
 		DEEC33231ECBEB4800CBC145 /* UILabel+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Helper.h"; sourceTree = "<group>"; };
 		DEEC33241ECBEB4800CBC145 /* UILabel+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Helper.m"; sourceTree = "<group>"; };
-		DEEC33261ECC015200CBC145 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_button.png; sourceTree = "<group>"; };
 		DEEC332A1ECC06E400CBC145 /* restart_buttom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restart_buttom.png; sourceTree = "<group>"; };
 		DEEC332C1ECC073D00CBC145 /* show_score_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = show_score_button.png; sourceTree = "<group>"; };
 		DEEC332E1ECC0C9F00CBC145 /* goBack_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goBack_button.png; sourceTree = "<group>"; };
@@ -98,8 +97,6 @@
 		DE7ECEC91EBE91EE00EDCB3E = {
 			isa = PBXGroup;
 			children = (
-				DEEC33051ECAAB5C00CBC145 /* Player+CoreDataProperties.h */,
-				DEEC33061ECAAB5C00CBC145 /* Player+CoreDataProperties.m */,
 				DE7ECED41EBE91EE00EDCB3E /* Bubble */,
 				DE7ECED31EBE91EE00EDCB3E /* Products */,
 				DE83C0201EC99A1E0021DC8C /* Frameworks */,
@@ -130,10 +127,10 @@
 				DE7ECEE61EBE91EE00EDCB3E /* Info.plist */,
 				DE7ECF101EC07AB600EDCB3E /* Bubble.h */,
 				DE7ECF111EC07AB600EDCB3E /* Bubble.m */,
+				DEEC33051ECAAB5C00CBC145 /* Player+CoreDataProperties.h */,
+				DEEC33061ECAAB5C00CBC145 /* Player+CoreDataProperties.m */,
 				DEEC330C1ECB1C7200CBC145 /* HighScoreList.h */,
 				DEEC330D1ECB1C7200CBC145 /* HighScoreList.m */,
-				DEEC330F1ECB372D00CBC145 /* UIButton+Border.h */,
-				DEEC33101ECB372D00CBC145 /* UIButton+Border.m */,
 				DEEC33231ECBEB4800CBC145 /* UILabel+Helper.h */,
 				DEEC33241ECBEB4800CBC145 /* UILabel+Helper.m */,
 			);
@@ -152,18 +149,19 @@
 		DE7ECEFF1EBEDF3B00EDCB3E /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				DED2EB6B1ECD1BDB0059840B /* start_button.png */,
+				DED2EB691ECD1A700059840B /* pop.mp3 */,
+				DEE4C0FD1ECC81D2001A3C40 /* Icon.png */,
+				DEE4C0FB1ECC8168001A3C40 /* game_img.png */,
+				DEE4C0F91ECC7155001A3C40 /* main_menu_button.png */,
 				DEEC332E1ECC0C9F00CBC145 /* goBack_button.png */,
 				DEEC332C1ECC073D00CBC145 /* show_score_button.png */,
 				DEEC332A1ECC06E400CBC145 /* restart_buttom.png */,
-				DEEC33261ECC015200CBC145 /* start_button.png */,
 				DEEC33161ECBE7E300CBC145 /* green_bubble.png */,
 				DEEC33171ECBE7E300CBC145 /* pink_bubble.png */,
 				DEEC33181ECBE7E300CBC145 /* blue_bubble.png */,
 				DEEC33191ECBE7E300CBC145 /* black_bubble.png */,
 				DEEC331A1ECBE7E300CBC145 /* red_bubble.png */,
-				DEEC33141ECBD9FE00CBC145 /* Herculanum.ttf */,
-				DEA488701EC48AD800738703 /* Icon6.png */,
-				DEA4886E1EC48A8C00738703 /* Icon.png */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -251,19 +249,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE4C0FE1ECC81D2001A3C40 /* Icon.png in Resources */,
+				DEE4C0FC1ECC8168001A3C40 /* game_img.png in Resources */,
 				DEEC331B1ECBE7E300CBC145 /* green_bubble.png in Resources */,
 				DEEC332D1ECC073D00CBC145 /* show_score_button.png in Resources */,
 				DEEC331E1ECBE7E300CBC145 /* black_bubble.png in Resources */,
-				DEA4886F1EC48A8C00738703 /* Icon.png in Resources */,
 				DE7ECEE51EBE91EE00EDCB3E /* LaunchScreen.storyboard in Resources */,
-				DEEC33271ECC015200CBC145 /* start_button.png in Resources */,
 				DEEC332B1ECC06E400CBC145 /* restart_buttom.png in Resources */,
 				DE7ECEE21EBE91EE00EDCB3E /* Assets.xcassets in Resources */,
-				DEEC33151ECBD9FE00CBC145 /* Herculanum.ttf in Resources */,
-				DEA488711EC48AD800738703 /* Icon6.png in Resources */,
 				DEEC331F1ECBE7E300CBC145 /* red_bubble.png in Resources */,
+				DEE4C0FA1ECC7155001A3C40 /* main_menu_button.png in Resources */,
 				DE7ECEE01EBE91EE00EDCB3E /* Main.storyboard in Resources */,
 				DEEC331D1ECBE7E300CBC145 /* blue_bubble.png in Resources */,
+				DED2EB6C1ECD1BDB0059840B /* start_button.png in Resources */,
+				DED2EB6A1ECD1A700059840B /* pop.mp3 in Resources */,
 				DEEC332F1ECC0C9F00CBC145 /* goBack_button.png in Resources */,
 				DEEC331C1ECBE7E300CBC145 /* pink_bubble.png in Resources */,
 			);
@@ -283,7 +282,6 @@
 				DE7ECF151EC0841200EDCB3E /* BubbleViewController.m in Sources */,
 				DEEC330E1ECB1C7200CBC145 /* HighScoreList.m in Sources */,
 				DE7ECED71EBE91EE00EDCB3E /* main.m in Sources */,
-				DEEC33111ECB372D00CBC145 /* UIButton+Border.m in Sources */,
 				DEEC33081ECAAB5C00CBC145 /* Player+CoreDataProperties.m in Sources */,
 				DEEC33251ECBEB4800CBC145 /* UILabel+Helper.m in Sources */,
 				DE7ECF0C1EC0742900EDCB3E /* BubbleModel.m in Sources */,

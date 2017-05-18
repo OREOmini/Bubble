@@ -132,6 +132,7 @@
             abort();
         }
     }
+    [self loadData];
 }
 
 -(void) loadData {
@@ -157,6 +158,7 @@
     
     [knownScoreList_ addObject:player];
     knownScoreList_ = [[knownScoreList_ sortedArrayUsingDescriptors:sortDescriptors_] mutableCopy];
+
     [self saveContext];
     return knownScoreList_;
 }
@@ -165,8 +167,12 @@
 }
 
 - (int)getHighestScore {
-    Player *p = [knownScoreList_ objectAtIndex:0];
-    return p.score;
+    if (knownScoreList_.count > 0) {
+        Player *p = [knownScoreList_ objectAtIndex:0];
+        return p.score;
+    } else {
+        return 0;
+    }
 }
 
 

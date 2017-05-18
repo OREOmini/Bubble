@@ -31,8 +31,8 @@
     
     self.scoreTableView.delegate = highScoreList;
     self.scoreTableView.dataSource = highScoreList;
-    
-  
+
+
     [self.scoreTableView reloadData];
 
 }

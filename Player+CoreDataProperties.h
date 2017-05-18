@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Player (CoreDataProperties)
 
-+ (NSFetchRequest<Player *> *)fetchRequest;
 
 @property (nonatomic) int16_t bubble_number;
 @property (nonatomic) int16_t game_time;

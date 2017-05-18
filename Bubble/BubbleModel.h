@@ -17,10 +17,10 @@
 @property int bubbleNumber;
 @property int bubbleSize;
 
--(CGRect) generateRandomRectInFrame:(CGRect)frame;
-// -(NSMutableArray*) generateBubblePositionsWithFrame:(CGRect)frame;
--(NSMutableArray*) generateBubbleColors;
+// choose colors with possiblity
 -(NSMutableArray*)chooseRandomColorsWithNumber:(int)num;
+
+// generate an array of bubble rect that will not overlap each other and will not overlap existing bubbles
 -(NSMutableArray*) generateBubblePositionsWithFrame:(CGRect)frame
                                     withRequiredNum:(int)num
                                  andExistingBubbles:(NSMutableArray*) existingBubbles;

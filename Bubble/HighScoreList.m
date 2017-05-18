@@ -12,6 +12,11 @@
 #import "Player+CoreDataProperties.h"
 #import "scoresViewController.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 @implementation HighScoreList
 
@@ -24,9 +29,20 @@
     return self;
 }
 
+// give the tableView a border
+-(void)setTableViewstyle:(UITableView*)tableView {
+    tableView.layer.borderWidth = 10;
+    tableView.layer.borderColor = UIColorFromRGB(0xBBB9BE).CGColor;
+    
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.scoreList_.count;
+    [self setTableViewstyle:tableView];
+    if(self.scoreList_.count <= 10)
+        return self.scoreList_.count;
+    else
+        return 10;
 }
 
 - (NSInteger)numberOfSectionsInTableView: (UITableView *) tableView
@@ -41,22 +57,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"pp" forIndexPath:indexPath];
     
     Player * player = (Player *)[scoreList_ objectAtIndex: indexPath.row];
-    cell.textLabel.text = player.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", player.score];
+    cell.textLabel.text = [NSString stringWithFormat:@"NO.%ld   %@", indexPath.row+1, player.name];    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", player.score];
     
-    // Configure the cell to present data...
-    //cell.detailTextLabel.text = player.top_score.stringValue;
-    
+   
     return cell;
     
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Player * player = (Player *)[scoreList_ objectAtIndex: indexPath.row];
-    NSString *msg =[NSString stringWithFormat:@"name:%@ score:%hd gametime:%d maxbubblenumber:%d", player.name, player.score, player.game_time, player.bubble_number];
+    NSString *msg =[NSString stringWithFormat:@"name:%@\n score:%hd\n gametime:%d\n maxbubblenumber:%d", player.name, player.score, player.game_time, player.bubble_number];
     
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"selected player"
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Selected Player"
                                                                    message:msg
                                                             preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
@@ -69,6 +82,7 @@
     [viewController presentViewController:alert animated:YES completion:nil];
 }
 
+// get the root viewController of current tableView in order to show the detail alert
 -(UIViewController*) getRootControllerFromTableView:(UITableView*)tableview{
     if ([tableview.nextResponder.nextResponder isKindOfClass:UIViewController.class]) {
         return (UIViewController *)tableview.nextResponder.nextResponder;

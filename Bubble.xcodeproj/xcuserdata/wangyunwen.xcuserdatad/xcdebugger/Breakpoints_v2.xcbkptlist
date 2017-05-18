@@ -9,30 +9,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bubble/HighScoreList.m"
-            timestampString = "516633774.361622"
+            filePath = "Bubble/ViewController.m"
+            timestampString = "516762825.188508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-showCountDownAnimation"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bubble/HighScoreList.m"
-            timestampString = "516633462.828339"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-getRootControllerFromTableView:"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController showCountDownAnimation]"
+                  moduleName = "Bubble"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangyunwen/Desktop/UTS/IOS/Bubble/Bubble/ViewController.m"
+                  timestampString = "516757642.213828"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController showCountDownAnimation]"
+                  moduleName = "Bubble"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangyunwen/Desktop/UTS/IOS/Bubble/Bubble/ViewController.m"
+                  timestampString = "516757642.21551"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -41,29 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bubble/HighScoreList.m"
-            timestampString = "516633462.828339"
+            filePath = "Bubble/ViewController.m"
+            timestampString = "516762825.188508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-getRootControllerFromTableView:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bubble/HighScoreList.m"
-            timestampString = "516633133.002655"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-getRootControllerFromTableView:"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "-updateTimer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

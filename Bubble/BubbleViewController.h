@@ -26,11 +26,8 @@
 
 
 -(IBAction)touchBubble:(UIButton*)bubble;
--(Boolean) isSequenceBubble:(UIButton*)bubble;
--(void) popGainedScoreWithPoint:(int)point andBubble:(UIButton*)bubble withFlag:(Boolean)isExtraPoint;
--(void) removeBubbles;
--(void) updateTimer;
--(UIButton*) createBubbleButtonWithColor:(NSString*)color withRect:(CGRect)rect;
+
+
 
 
 @end

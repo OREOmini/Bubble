@@ -10,9 +10,6 @@
 
 @implementation Player (CoreDataProperties)
 
-+ (NSFetchRequest<Player *> *)fetchRequest {
-	return [[NSFetchRequest alloc] initWithEntityName:@"Player"];
-}
 
 @dynamic bubble_number;
 @dynamic game_time;

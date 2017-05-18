@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UILabel (Helper)
+
+// to change the default font family
 - (void)setSubstituteFontName:(NSString *)name UI_APPEARANCE_SELECTOR;
 @end
